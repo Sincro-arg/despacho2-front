@@ -13,7 +13,7 @@ export function ColumnaPedidos({ titulo, estado, version = 0, onCambio }: Props)
   const { pedidos, cargando, error, reintentar } = usePedidosPorEstado(estado, version);
 
   return (
-    <section className="columna" aria-label={titulo}>
+    <section className={`columna columna--${estado}`} aria-label={titulo}>
       <header className="columna__header">
         <h2>{titulo}</h2>
         {!cargando && !error && <span className="columna__contador">{pedidos.length}</span>}
