@@ -1,9 +1,12 @@
 import { useCallback, useState } from 'react';
 import { crearPedido } from '../api/pedidos';
 import type { DatosPedido } from '../api/pedidos';
+import { useMetricas } from '../hooks/useMetricas';
 import type { EstadoPedido } from '../types';
 import { ColumnaPedidos } from './ColumnaPedidos';
 import { FormularioPedido } from './FormularioPedido';
+import { ListaEntregasPorRepartidor } from './ListaEntregasPorRepartidor';
+import { PanelMetricas } from './PanelMetricas';
 
 const COLUMNAS: Array<{ estado: EstadoPedido; titulo: string }> = [
   { estado: 'pendiente', titulo: 'Pendiente' },
@@ -16,6 +19,12 @@ export function TableroPedidos() {
   const [version, setVersion] = useState(0);
   const [modalAbierto, setModalAbierto] = useState(false);
   const [mensaje, setMensaje] = useState<string | null>(null);
+  const {
+    metricas,
+    cargando: cargandoMetricas,
+    error: errorMetricas,
+    reintentar: reintentarMetricas,
+  } = useMetricas(version);
 
   const actualizar = useCallback(() => setVersion((v) => v + 1), []);
 
@@ -31,6 +40,13 @@ export function TableroPedidos() {
 
   return (
     <div className="tablero-vista">
+      <PanelMetricas
+        metricas={metricas}
+        cargando={cargandoMetricas}
+        error={errorMetricas}
+        reintentar={reintentarMetricas}
+      />
+
       <div className="tablero-acciones">
         <button type="button" onClick={() => setModalAbierto(true)}>
           Nuevo pedido
@@ -57,6 +73,13 @@ export function TableroPedidos() {
           />
         ))}
       </div>
+
+      <ListaEntregasPorRepartidor
+        porRepartidor={metricas?.porRepartidor ?? []}
+        cargando={cargandoMetricas}
+        error={errorMetricas}
+        reintentar={reintentarMetricas}
+      />
 
       {modalAbierto && (
         <FormularioPedido onGuardar={crear} onCancelar={() => setModalAbierto(false)} />

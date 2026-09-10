@@ -24,3 +24,17 @@ export interface Pedido {
   telefono?: string;
   items?: string;
 }
+
+export interface EntregasPorRepartidor {
+  repartidorId: string | number;
+  repartidor: string;
+  entregas: number;
+}
+
+export interface MetricasTurno {
+  entregados: number;
+  facturado: number;
+  tiempoPromedioMinutos: number;
+  demorados: number;
+  porRepartidor: EntregasPorRepartidor[];
+}

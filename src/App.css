@@ -48,6 +48,124 @@
   min-height: 0;
 }
 
+.panel-metricas {
+  padding: 1rem 1rem 0;
+}
+
+.panel-metricas__estado {
+  text-align: center;
+  color: #5a6270;
+  padding: 1rem;
+  background: #e9ebf0;
+  border-radius: 0.75rem;
+}
+
+.panel-metricas__estado--error {
+  color: #9b1c1c;
+}
+
+.panel-metricas__estado--error button {
+  margin-top: 0.5rem;
+  border: none;
+  background: #9b1c1c;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.panel-metricas__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.panel-metricas__item {
+  background: #1a1f2b;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.panel-metricas__item--demorados {
+  background: #d97706;
+}
+
+.panel-metricas__valor {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.panel-metricas__etiqueta {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.lista-entregas {
+  margin: 0 1rem 1rem;
+  background: #e9ebf0;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem 1rem;
+}
+
+.lista-entregas h2 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.lista-entregas__estado {
+  text-align: center;
+  color: #5a6270;
+  padding: 1rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.lista-entregas__estado--error {
+  color: #9b1c1c;
+}
+
+.lista-entregas__estado--error button {
+  margin-top: 0.5rem;
+  border: none;
+  background: #9b1c1c;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.lista-entregas__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lista-entregas__fila {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.lista-entregas__cantidad {
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .panel-metricas__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .tablero-acciones {
   display: flex;
   justify-content: flex-end;
