@@ -9,7 +9,7 @@ interface ResultadoPedidos {
   reintentar: () => void;
 }
 
-export function usePedidosPorEstado(estado: EstadoPedido): ResultadoPedidos {
+export function usePedidosPorEstado(estado: EstadoPedido, version = 0): ResultadoPedidos {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +29,7 @@ export function usePedidosPorEstado(estado: EstadoPedido): ResultadoPedidos {
       .finally(() => setCargando(false));
 
     return () => controller.abort();
-  }, [estado, intento]);
+  }, [estado, intento, version]);
 
   const reintentar = useCallback(() => setIntento((v) => v + 1), []);
 

@@ -1,4 +1,4 @@
-export type EstadoPedido = 'pendiente' | 'asignado' | 'en_camino' | 'entregado';
+export type EstadoPedido = 'pendiente' | 'asignado' | 'en_camino' | 'entregado' | 'cancelado';
 
 export type EstadoRepartidor = 'activo' | 'inactivo';
 
@@ -8,6 +8,8 @@ export interface Repartidor {
   telefono: string;
   vehiculo: string;
   estado: EstadoRepartidor;
+  /** false si ya tiene un pedido asignado en curso. Si no viene, se asume libre. */
+  libre?: boolean;
 }
 
 export interface Pedido {
@@ -19,4 +21,6 @@ export interface Pedido {
   estado: EstadoPedido;
   repartidor?: string | null;
   demorado?: boolean;
+  telefono?: string;
+  items?: string;
 }

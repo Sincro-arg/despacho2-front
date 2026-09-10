@@ -5,10 +5,12 @@ import { TarjetaPedido } from './TarjetaPedido';
 interface Props {
   titulo: string;
   estado: EstadoPedido;
+  version?: number;
+  onCambio?: () => void;
 }
 
-export function ColumnaPedidos({ titulo, estado }: Props) {
-  const { pedidos, cargando, error, reintentar } = usePedidosPorEstado(estado);
+export function ColumnaPedidos({ titulo, estado, version = 0, onCambio }: Props) {
+  const { pedidos, cargando, error, reintentar } = usePedidosPorEstado(estado, version);
 
   return (
     <section className="columna" aria-label={titulo}>
@@ -35,7 +37,9 @@ export function ColumnaPedidos({ titulo, estado }: Props) {
 
         {!cargando &&
           !error &&
-          pedidos.map((pedido) => <TarjetaPedido key={pedido.id} pedido={pedido} />)}
+          pedidos.map((pedido) => (
+            <TarjetaPedido key={pedido.id} pedido={pedido} onCambio={onCambio} />
+          ))}
       </div>
     </section>
   );
