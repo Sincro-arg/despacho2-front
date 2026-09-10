@@ -8,11 +8,37 @@
   padding: 1rem 1.25rem;
   background: #1a1f2b;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .app__header h1 {
   margin: 0;
   font-size: 1.25rem;
+}
+
+.app__nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.app__nav-boton {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.app__nav-boton--activo {
+  background: #fff;
+  color: #1a1f2b;
+  font-weight: 600;
 }
 
 .tablero {
@@ -141,5 +167,247 @@
 
   .columna__body {
     max-height: 65vh;
+  }
+}
+
+.panel-repartidores {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.panel-repartidores__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panel-repartidores__header h2 {
+  margin: 0;
+}
+
+.panel-repartidores__header button {
+  border: none;
+  background: #1a1f2b;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.panel-repartidores__confirmacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #e6f4ea;
+  color: #1e5c33;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.9rem;
+}
+
+.panel-repartidores__confirmacion p {
+  margin: 0;
+}
+
+.panel-repartidores__confirmacion button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.panel-repartidores__estado {
+  text-align: center;
+  color: #5a6270;
+  padding: 1.5rem 0.5rem;
+}
+
+.panel-repartidores__estado--error {
+  color: #9b1c1c;
+}
+
+.panel-repartidores__estado--error button {
+  margin-top: 0.5rem;
+  border: none;
+  background: #9b1c1c;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.panel-repartidores__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.repartidor {
+  background: #fff;
+  border-radius: 0.6rem;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.repartidor__datos p {
+  margin: 0.1rem 0;
+  font-size: 0.9rem;
+}
+
+.repartidor__nombre {
+  font-weight: 600;
+  font-size: 0.95rem !important;
+}
+
+.repartidor__telefono,
+.repartidor__vehiculo {
+  color: #5a6270;
+}
+
+.repartidor__estado {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.repartidor__estado--activo {
+  background: #e6f4ea;
+  color: #1e5c33;
+}
+
+.repartidor__estado--inactivo {
+  background: #ececec;
+  color: #6b6b6b;
+}
+
+.repartidor__acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.repartidor__acciones button {
+  border: 1px solid #d4d8e0;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.repartidor__boton-baja {
+  border-color: #9b1c1c !important;
+  color: #9b1c1c;
+}
+
+.repartidor__confirmacion {
+  width: 100%;
+  background: #fff8ec;
+  border: 1px solid #d97706;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.repartidor__confirmacion p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.repartidor__error {
+  color: #9b1c1c;
+  font-size: 0.85rem;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.formulario-repartidor {
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formulario-repartidor h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.formulario-repartidor label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: #5a6270;
+}
+
+.formulario-repartidor input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #d4d8e0;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.formulario-repartidor__error {
+  color: #9b1c1c;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.formulario-repartidor__botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.formulario-repartidor__botones button[type='submit'] {
+  border: none;
+  background: #1a1f2b;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.formulario-repartidor__botones button[type='button'] {
+  border: 1px solid #d4d8e0;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .repartidor {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
