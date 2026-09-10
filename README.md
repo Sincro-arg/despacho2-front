@@ -12,9 +12,9 @@ carga, vacío y error.
 
 ### Desarrollo: front + back juntos, sin configurar nada
 
-`vite.config.ts` ya tiene un proxy que redirige `/pedidos`, `/repartidores`
-y `/metricas` hacia `http://localhost:3001`. Para ver el tablero con datos
-reales:
+`vite.config.ts` ya tiene un proxy que redirige `/pedidos`, `/repartidores`,
+`/metricas` y `/zonas` hacia `http://localhost:3001`. Para ver el tablero con
+datos reales:
 
 1. `despacho2-back`: `npm start` (levanta en el puerto 3001, ver su README).
 2. `despacho2-front`: `npm run dev` (puerto 5173).
@@ -113,6 +113,22 @@ fila. El front solo espera una respuesta con status 2xx (no necesita body).
     { "repartidorId": "1", "repartidor": "Ana Gomez", "entregas": 7 }
   ]
 }
+```
+
+### Zonas
+
+`GET {VITE_API_URL}/zonas`
+
+Las 4 zonas fijas con su recargo (todavía sin usar desde el front; el
+formulario de pedido pide la zona como texto libre).
+
+```json
+[
+  { "zona": "Centro", "recargo": 0 },
+  { "zona": "Norte", "recargo": 0.1 },
+  { "zona": "Sur", "recargo": 0.1 },
+  { "zona": "Oeste", "recargo": 0.15 }
+]
 ```
 
 ## Scripts

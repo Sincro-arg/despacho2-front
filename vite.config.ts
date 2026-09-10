@@ -12,6 +12,7 @@ export default defineConfig({
       '/pedidos': process.env.VITE_API_URL || 'http://localhost:3001',
       '/repartidores': process.env.VITE_API_URL || 'http://localhost:3001',
       '/metricas': process.env.VITE_API_URL || 'http://localhost:3001',
+      '/zonas': process.env.VITE_API_URL || 'http://localhost:3001',
     },
   },
   test: {
