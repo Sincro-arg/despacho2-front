@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/setupTests.ts","./src/types.ts","./src/api/pedidos.ts","./src/components/ColumnaPedidos.test.tsx","./src/components/ColumnaPedidos.tsx","./src/components/TableroPedidos.tsx","./src/components/TarjetaPedido.test.tsx","./src/components/TarjetaPedido.tsx","./src/hooks/usePedidosPorEstado.ts"],"version":"5.9.3"}
