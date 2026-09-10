@@ -11,15 +11,36 @@
   padding: var(--spacing-sm) var(--spacing-md);
 }
 
-.header__marca {
+.header__fila-superior {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
 }
 
 .header__logo {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
+}
+
+.header__nav {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.header__link {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.header__link--activo {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
 }
 
 .header__metricas {
