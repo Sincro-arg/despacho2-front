@@ -1,10 +1,21 @@
 import { useState } from 'react';
-import type { Repartidor } from '../types';
+import type { EstadoOperativo, Repartidor } from '../types';
 
 interface Props {
   repartidor: Repartidor;
   onEditar: (repartidor: Repartidor) => void;
   onBaja: (repartidor: Repartidor) => Promise<void>;
+}
+
+const ETIQUETAS_ESTADO_OPERATIVO: Record<EstadoOperativo, string> = {
+  libre: 'Libre',
+  en_ruta: 'En ruta',
+  descanso: 'Descanso',
+};
+
+function obtenerEstadoOperativo(repartidor: Repartidor): EstadoOperativo {
+  if (repartidor.estadoOperativo) return repartidor.estadoOperativo;
+  return repartidor.libre === false ? 'en_ruta' : 'libre';
 }
 
 export function FilaRepartidor({ repartidor, onEditar, onBaja }: Props) {
@@ -13,6 +24,7 @@ export function FilaRepartidor({ repartidor, onEditar, onBaja }: Props) {
   const [errorBaja, setErrorBaja] = useState<string | null>(null);
 
   const activo = repartidor.estado === 'activo';
+  const estadoOperativo = obtenerEstadoOperativo(repartidor);
 
   async function confirmarBaja() {
     setDandoBaja(true);
@@ -37,6 +49,12 @@ export function FilaRepartidor({ repartidor, onEditar, onBaja }: Props) {
 
       <span className={`repartidor__estado repartidor__estado--${repartidor.estado}`}>
         {activo ? 'Activo' : 'Inactivo'}
+      </span>
+
+      <span
+        className={`repartidor__estado-operativo repartidor__estado-operativo--${estadoOperativo}`}
+      >
+        {ETIQUETAS_ESTADO_OPERATIVO[estadoOperativo]}
       </span>
 
       {!confirmando && (

@@ -33,6 +33,33 @@ describe('FilaRepartidor', () => {
     expect(screen.queryByRole('button', { name: 'Dar de baja' })).not.toBeInTheDocument();
   });
 
+  it('muestra Libre por defecto y En ruta cuando libre es false', () => {
+    const { rerender } = render(
+      <FilaRepartidor repartidor={repartidorActivo} onEditar={vi.fn()} onBaja={vi.fn()} />,
+    );
+    expect(screen.getByText('Libre')).toBeInTheDocument();
+
+    rerender(
+      <FilaRepartidor
+        repartidor={{ ...repartidorActivo, libre: false }}
+        onEditar={vi.fn()}
+        onBaja={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('En ruta')).toBeInTheDocument();
+  });
+
+  it('muestra el estado operativo explicito cuando viene del backend', () => {
+    render(
+      <FilaRepartidor
+        repartidor={{ ...repartidorActivo, libre: false, estadoOperativo: 'descanso' }}
+        onEditar={vi.fn()}
+        onBaja={vi.fn()}
+      />,
+    );
+    expect(screen.getByText('Descanso')).toBeInTheDocument();
+  });
+
   it('llama a onEditar al hacer click en Editar', async () => {
     const onEditar = vi.fn();
     render(<FilaRepartidor repartidor={repartidorActivo} onEditar={onEditar} onBaja={vi.fn()} />);

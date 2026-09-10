@@ -654,6 +654,30 @@
   color: #6b6b6b;
 }
 
+.repartidor__estado-operativo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.repartidor__estado-operativo--libre {
+  background: #e6f4ea;
+  color: #1e5c33;
+}
+
+.repartidor__estado-operativo--en_ruta {
+  background: #e8f0fe;
+  color: #1a4ba8;
+}
+
+.repartidor__estado-operativo--descanso {
+  background: #fff4e5;
+  color: #9a5b00;
+}
+
 .repartidor__acciones {
   display: flex;
   gap: 0.5rem;
